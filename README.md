@@ -39,7 +39,7 @@
 
 I made this project to learn more about the Discord API and how to create a Discord bot using the api. The bot is made to be used in a discord server or Dm where you want to keep track of your crypto transactions. The bot uses the BlockCypher API to fetch information about transactions and addresses. The bot can be used to fetch information about a specific transaction or address.
 
-The code is open-source and can be used by anyone who wants to learn more about the Discord API or how to create a Discord bot. The bot is also available to be added to your workspace if you want to use it using this link or finding it on the Discord discovery. *still in review as of now*.
+The code is open-source and can be used by anyone who wants to learn more about the Discord API or how to create a Discord bot. The bot is also available to be added to your discord server or dm if you want to use it using this link or finding it on the Discord discovery. *still in review as of now*.
 
 There is a Slack version of this bot available [here](https://github.com/LCHoldings/blockcypher-slack-bot) by [Lazyllama](https://github.com/laylllama) if you are interested in that instead!
 
@@ -111,7 +111,7 @@ _Below is an example of how you can instruct your audience on installing and set
     ```
     - Copy the URL that is generated and use it in the next steps.
 
-4. Create a Slack application
+4. Create a Discord Bot application
     - Go to the [Discord Developer Page](https://discord.com/developers/applications) and create a new application.
     - Copy the Application ID, Discord Token, Public Key Into the env
 5. Add the Discord Bot to a Server or Dm
