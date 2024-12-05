@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/LCHoldings/blockcypher-discord-bot">
-    <img src="screenshots/logo.png" alt="Logo" style="border-radius: 10px" width="80" height="80">
+    <img src="https://cloud-c2e6r9vbt-hack-club-bot.vercel.app/0logo.png" alt="Logo" style="border-radius: 10px" width="80" height="80">
   </a>
 
   <h3 align="center">BlockCypher Discord Bot</h3>
@@ -35,7 +35,7 @@
 <!-- ABOUT THE PROJECT -->
 ## 📝 About The Project
 
-![Example Usage](screenshots/example1.png)
+![Example Usage](https://cloud-99ebgyexr-hack-club-bot.vercel.app/0example1.png)
 
 I made this project to learn more about the Discord API and how to create a Discord bot using the api. The bot is made to be used in a discord server or Dm where you want to keep track of your crypto transactions. The bot uses the BlockCypher API to fetch information about transactions and addresses. The bot can be used to fetch information about a specific transaction or address.
 
