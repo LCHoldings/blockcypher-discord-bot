@@ -118,7 +118,7 @@ async function checkAdressType(address: string) {
 export default async function getTransaction(firstParam: string): Promise<Transaction | string> {
     try {
         const transaction = await checkAdressType(firstParam)
-        console.log(transaction)
+
         // fuck off regex 🙂 🔥
         // Vår julskinka har rymt, och släkten kommer om en timme 🎤🔥
         // https://open.spotify.com/track/1ieq2YaXJBzyJ33fOYvG8W?si=c34385b0590545e3

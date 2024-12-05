@@ -5,7 +5,6 @@ export function VerifyDiscordRequest(clientKey) {
   return function (req, res, buf) {
     const signature = req.get('X-Signature-Ed25519');
     const timestamp = req.get('X-Signature-Timestamp');
-    console.log(signature, timestamp, clientKey);
 
     const isValidRequest = verifyKey(buf, signature, timestamp, clientKey);
     if (!isValidRequest) {
@@ -28,8 +27,7 @@ export async function DiscordRequest(endpoint, options) {
     ...options,
   });
   if (!res.ok) {
-    const data = await res.json();
-    console.log(res.status);
+    const data = await res.json(););
     throw new Error(JSON.stringify(data));
   }
   return res;
