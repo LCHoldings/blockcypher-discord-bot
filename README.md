@@ -1,117 +1,185 @@
-# User-Installable app for Discord
-
-This project contains a basic example of a game integration for Discord written in JavaScript, built for the [Developing a User-Installable App tutorial](http://discord.com/developers/docs/tutorials/developing-a-user-installable-app).
 
 
-## Project structure
-Below is a basic overview of the project structure:
+<a id="readme-top"></a>
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
-```
-├── .env.sample -> sample .env file
-├── app.js      -> main entrypoint for the app
-├── commands.js -> slash command payloads + helpers
-├── game.js     -> logic specific to the fake game
-├── utils.js    -> utility functions and enums
-|-- package-lock.json
-├── package.json
-├── README.md
-└── .gitignore
-```
 
-## Running app locally
 
-Configuring the app is covered in detail in the [tutorial](http://discord.com/developers/docs/tutorials/developing-a-user-installable-app).
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/LCHoldings/blockcypher-discord-bot">
+    <img src="screenshots/logo.png" alt="Logo" style="border-radius: 10px" width="80" height="80">
+  </a>
 
-Before you start, you'll need to install [NodeJS](https://nodejs.org/en/download/) and [create a Discord app](https://discord.com/developers/applications) with the proper configuration:
+  <h3 align="center">BlockCypher Discord Bot</h3>
 
-### Default Install Settings
+  <a align="center" href="https://discord.com/oauth2/authorize?client_id=1314039232121143326">
+  </a>
 
-Click on the **Installation** page in your app's settings and go to the **Default Install Settings** section.
+  <p align="center">
+    Take your crypto transactions to your Discord chat.
+    <br />
+    <a href="https://discord.com/oauth2/authorize?client_id=1314039232121143326">Add to Discord</a>
+    ·
+    <a href="https://github.com/LCHoldings/blockcypher-discord-bot/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    ·
+    <a href="https://github.com/LCHoldings/blockcypher-discord-bot/fork">Fork Project</a>
+  </p>
+</div>
 
-For user install:
-- `applications.commands`
 
-For guild install:
-- `applications.commands`
-- `bot` (with Send Messages enabled)
+<!-- ABOUT THE PROJECT -->
+## 📝 About The Project
 
-### Privileged Gateway Intents
+![Example Usage](screenshots/example1.png)
 
-This sample app uses a privilege intent to create a fake leaderboard. In production, you probably wouldn't need this.
+I made this project to learn more about the Discord API and how to create a Discord bot using the api. The bot is made to be used in a discord server or Dm where you want to keep track of your crypto transactions. The bot uses the BlockCypher API to fetch information about transactions and addresses. The bot can be used to fetch information about a specific transaction or address.
 
-Click on the **Bot** page in your app's settings and go to the **Privileged Gateway Intents** section.
+The code is open-source and can be used by anyone who wants to learn more about the Discord API or how to create a Discord bot. The bot is also available to be added to your workspace if you want to use it using this link or finding it on the Discord discovery. *still in review as of now*.
 
-Toggle **Server Members Intent**.
+There is a Slack version of this bot available [here](https://github.com/LCHoldings/blockcypher-slack-bot) by [Lazyllama](https://github.com/laylllama) if you are interested in that instead!
 
-### Setup project
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-First clone the project:
-```
-git clone https://github.com/discord/user-install-example.git
-```
 
-Then navigate to its directory and install dependencies:
-```
-cd user-install-example
-npm install
-```
-### Get app credentials
 
-Fetch the credentials from your app's settings and add them to a `.env` file (see `.env.sample` for an example). You'll need your app ID (`APP_ID`), bot token (`DISCORD_TOKEN`), and public key (`PUBLIC_KEY`).
+### 🛠️ Made using
 
-Fetching credentials is covered in detail in the [tutorial](http://discord.com/developers/docs/tutorials/developing-a-user-installable-app).
+This section contains some of the most notable tools/libraries used in this project.
 
-> 🔑 Environment variables can be added to the `.env` file in Glitch or when developing locally, and in the Secrets tab in Replit (the lock icon on the left).
+* [![Discord](https://img.shields.io/badge/discord-000000?style=for-the-badge&logo=discord&color=161616
+)](https://slack.com)
+* ![Axios](https://img.shields.io/badge/axios-000000?style=for-the-badge&logo=axios&color=5A29E4)
+* ![TypeScript](https://img.shields.io/badge/typescript-000000?style=for-the-badge&logo=typescript&color=161616)
 
-### Install slash commands
 
-The commands for the example app are set up in `commands.js`. All of the commands in the `ALL_COMMANDS` array at the bottom of `commands.js` will be installed when you run the `register` command configured in `package.json`:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-```
-npm run register
-```
 
-### Run the app
 
-After your credentials are added, go ahead and run the app:
+<!-- GETTING STARTED -->
+## 🏗️ Getting Started
 
-```
-node app.js
-```
+How to run this project locally.
 
-> ⚙️ A package [like `nodemon`](https://github.com/remy/nodemon), which watches for local changes and restarts your app, may be helpful while locally developing.
+### Prerequisites
 
-### Set up interactivity
+1. *Copy the `.env.example` file to `.env` and fill out the fields with your own information.*
 
-The project needs a public endpoint where Discord can send requests. To develop and test locally, you can use something like [`ngrok`](https://ngrok.com/) to tunnel HTTP traffic.
+```env
+# The Discord Application Id
+APP_ID=123456789
 
-Install ngrok if you haven't already, then start listening on port `3000`:
+# The Discord Bot Token
+DISCORD_TOKEN=123456789
+
+# Discord Bots Public Key
+PUBLIC_KEY=123456789
+
 
 ```
-ngrok http 3000
+
+2. *Install Nodemon* (optional)
+```sh
+npm install -g nodemon
 ```
 
-You should see your connection open:
 
-```
-Tunnel Status                 online
-Version                       2.0/2.0
-Web Interface                 http://127.0.0.1:4040
-Forwarding                    http://1234-someurl.ngrok.io -> localhost:3000
-Forwarding                    https://1234-someurl.ngrok.io -> localhost:3000
+### Installation
 
-Connections                  ttl     opn     rt1     rt5     p50     p90
-                              0       0       0.00    0.00    0.00    0.00
-```
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-Copy the forwarding address that starts with `https`, in this case `https://1234-someurl.ngrok.io`, then go to your [app's settings](https://discord.com/developers/applications).
 
-On the **General Information** tab, there will be an **Interactions Endpoint URL**. Paste your ngrok address there, and append `/interactions` to it (`https://1234-someurl.ngrok.io/interactions` in the example).
+1. First of all, run the following command to install the necessary dependencies.
+    ```sh
+    npm install
+    ```
+2. Run the following command to start the dev server.
+    ```sh
+    npm run dev
+    ```
+3. Follow this tutorial to use Ngrok to expose your local server to the internet.
+    - Sign up for an account on [Ngrok](https://ngrok.com/)
+    - Download the Ngrok client and follow the instructions to set it up.
+    - Run the following command to expose your local server to the internet. Where PORT is the port you are running the server on.
+    ```sh
+    ngrok http PORT
+    ```
+    - Copy the URL that is generated and use it in the next steps.
 
-Click **Save Changes**, and your app should be ready to run 🚀
+4. Create a Slack application
+    - Go to the [Discord Developer Page](https://discord.com/developers/applications) and create a new application.
+    - Copy the Application ID, Discord Token, Public Key Into the env
+5. Add the Discord Bot to a Server or Dm
+6. Enjoy!
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Other resources
-- Read **[the documentation](https://discord.com/developers/docs/intro)** for in-depth information about API features.
-- Browse the `examples/` folder in this project for smaller, feature-specific code examples
-- Join the **[Discord Developers server](https://discord.gg/discord-developers)** to ask questions about the API, attend events hosted by the Discord API team, and interact with other devs.
-- Check out **[community resources](https://discord.com/developers/docs/topics/community-resources#community-resources)** for language-specific tools maintained by community members.
+
+<!-- ROADMAP -->
+## 🗺️ Roadmap
+
+- [X] 🚢 Release project
+- [ ] 📝 Add more commands and suppport more crypto currencys
+- [ ] 🧹 Code Cleanup
+- [ ] 📚 Add more documentation
+- [ ] 📦 Better user experience
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- CONTRIBUTING -->
+## ⛑️ Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make the portfolio better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks!
+
+1. Fork the Project
+2. Change the project and add your files or changes (`git add *`)
+3. Commit your Changes (`git commit -m 'Feat | Added XXXX to the XXX'`)
+4. Push to the Branch (`git push`)
+5. Open a Pull Request
+
+### 🏆 Top contributors:
+
+<a href="https://github.com/LCHoldings/blockcypher-discord-bot/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=LCHoldings/blockcypher-discord-bot" alt="contrib.rocks image" />
+</a>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTACT -->
+## 💌 Contact
+
+Cyber - [@Lazyllamaa](https://discord.com/users/754965470888722484) - Yo@cyberdev.tech
+
+Project Link: [https://github.com/lcholdings/blockcypher-discord-bot](https://github.com/lcholdings/blockcypher-discord-bot)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+## 🌟 Acknowledgments
+
+Thanks to the following people for their help and inspiration:
+
+* [Readme Template](https://github.com/othneildrew/Best-README-Template)
+* [Discord API](https://discord.com/developers/docs/reference)
+* [Lazyllama](https://github.com/cyberdev-tech)
+* [BlockCypher](https://www.blockcypher.com/)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/lcholdings/blockcypher-discord-bot.svg?style=for-the-badge
+[contributors-url]: https://github.com/lcholdings/blockcypher-discord-bot/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/lcholdings/blockcypher-discord-bot.svg?style=for-the-badge
+[forks-url]: https://github.com/lcholdings/blockcypher-discord-bot/network/members
+[stars-shield]: https://img.shields.io/github/stars/lcholdings/blockcypher-discord-bot.svg?style=for-the-badge
+[stars-url]: https://github.com/lcholdings/blockcypher-discord-bot/stargazers
+[issues-shield]: https://img.shields.io/github/issues/lcholdings/blockcypher-discord-bot.svg?style=for-the-badge
+[issues-url]: https://github.com/lcholdings/blockcypher-discord-bot/issues
